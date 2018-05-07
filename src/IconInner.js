@@ -17,7 +17,7 @@ class IconInner extends PureComponent {
 
     if (iconMarkup) {
       return (
-        <g dangerouslySetInnerHTML={this.createMarkup(iconMarkup)} />
+        <g  />
       );
     }
     return null;
