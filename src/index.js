@@ -16,7 +16,7 @@ class PxIcon extends Component {
     const widthHeightAttr = `width="${size}" height="${size}"`;
     const editedMarkup = markup.replace(/viewBox="([^"]+)"/, `viewBox="$1" ${widthHeightAttr}`)
     // sanitize markup first
-    const sanitizedMarkup = DOMPurify.sanitize(markup);
+    const sanitizedMarkup = DOMPurify.sanitize(editedMarkup);
     // now do the weird thing for dangerouslySetInnerHTML
     return {__html: sanitizedMarkup};
   }
