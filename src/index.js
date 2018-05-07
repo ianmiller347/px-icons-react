@@ -9,7 +9,12 @@ import icons from './icons.json';
 // will need to have this weird span wrapper :\
 
 class PxIcon extends Component {
-  createMarkup(markup) {
+  createMarkup(markup, size) {
+    // sort of a hacky mess to set the width height to what user passes.
+    // can be updated when the icons.json does not need non-square viewBox.
+    // also change this component to accept width and height for non-square icons.
+    const widthHeightAttr = `width="${size}" height="${size}"`;
+    const editedMarkup = markup.replace(/viewBox="([^"]+)"/, `viewBox="$1" ${widthHeightAttr}`)
     // sanitize markup first
     const sanitizedMarkup = DOMPurify.sanitize(markup);
     // now do the weird thing for dangerouslySetInnerHTML
@@ -33,7 +38,7 @@ class PxIcon extends Component {
         <span
           className={`px-icon icon-${classFriendlyText} ${className}`}
           {...otherProps}
-          dangerouslySetInnerHTML={this.createMarkup(iconMarkup)} 
+          dangerouslySetInnerHTML={this.createMarkup(iconMarkup, size)} 
         />
       );
     }
