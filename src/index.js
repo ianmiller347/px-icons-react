@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import DOMPurify from 'dompurify';
 import icons from './icons.json';
 
 // this is basically a clone of "Feather Icons React", edited for Predix UI Icons.
@@ -13,10 +12,9 @@ import icons from './icons.json';
 
 class PxIcon extends Component {
   createMarkup(markup, size) {
-    // sanitize markup first
-    const sanitizedMarkup = DOMPurify.sanitize(markup);
+    // we arent sanitizing markup right now, bc DOMPurify does not like self-closing tags.
     // now do the weird thing for dangerouslySetInnerHTML
-    return {__html: sanitizedMarkup};
+    return {__html: markup};
   }
 
   render() {
