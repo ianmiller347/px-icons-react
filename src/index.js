@@ -9,6 +9,9 @@ class PxIcon extends Component {
     const { icon, size, className, ...otherProps } = this.props;
     // make a "css class friendly" name for the icon (no colon)
     const classFriendlyText = icon.replace(':', '-');
+    // take out "px-" from icon name if applicable.
+    // this way, user can do both px-util:close and util:close
+    const iconNoPx = icon.replace('px-', '');
 
     return (
       <svg
@@ -20,9 +23,9 @@ class PxIcon extends Component {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`px-icon icon-${icon} ${className}`}
+        className={`px-icon icon-${classFriendlyText} ${className}`}
         {...otherProps}>
-        <IconInner icon={icon} />
+        <IconInner icon={iconNoPx} />
       </svg>
     );
   }
