@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import DOMPurify from 'dompurify';
-import icons from './icons/icons.json';
+import icons from './icons.json';
 
 class IconInner extends PureComponent {
   createMarkup(markup) {
