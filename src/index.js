@@ -28,7 +28,9 @@ class PxIcon extends Component {
     const insides = iconMarkup
       .replace(/<svg ([^>]+)>/, '')
       .replace('</svg>', '');
-    const viewBoxAttr = iconMarkup.match(/viewBox="([^"]+)"/)[1] || '0 0 24 24';
+    const viewBoxMatches = iconMarkup.match(/viewBox="([^"]+)"/);
+    const viewBoxAttr = (viewBoxMatches && viewBoxMatches.length > 0) 
+      ? viewBoxMatches[1] : '0 0 24 24';
 
     if (iconMarkup) {
       return (
