@@ -1,6 +1,6 @@
 {
   "name": "px-icons-react",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Predix Icons as a React component.",
   "main": "build/index.js",
   "scripts": {
